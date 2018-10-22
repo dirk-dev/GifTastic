@@ -13,36 +13,34 @@
 </head>
 
 <body>
+    <div class="container">
 
-    <div id=gifButtons></div>
+        <h1>GifTastic</h1>
+        <p id="instructions">Click the labeled buttons to add gifs related to that item</p>
+        <br>
 
+        <div id=gifButtons></div>
 
+        <!-- edit for gif import -->
+        <form id="gifsForm">
+            <label for=gifsInput">Add another gif</label>
+            <input type="text" id="gif-input"><br>
 
+            <!-- Button triggers gif to be added -->
+            <input id="add-gif" type="submit" value="Submit">
+        </form>
 
-    <!-- edit for gif import -->
-    <form id="gifsForm">
-        <label for=gifsInput">Add another gif</label>
-        <input type="text" id="gif-input"><br>
+        <!-- gifs will get dumped Here -->
+        <div id="gifs-view"></div>
 
-        <!-- Button triggers new movie to be added -->
-        <input id="add-gif" type="submit" value="Submit">
-    </form>
+        <script type="text/javascript" src="assets/javascript/app.js">
 
-    <!-- Movies will get dumped Here -->
-    <div id="gifs-view"></div>
+        </script>
 
+    </div>
 
-
-
-
-
-
-
-    <script type="text/javascript" src="assets/javascript/app.js">
-
-    </script>
-
-
+    <footer><img id=giphyLogo src="assets/images/poweredby_100px-white_vertlogo.png" alt="powered by Giphy logo"></footer>
+    
 </body>
 
 </html>

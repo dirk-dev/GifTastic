@@ -1,27 +1,46 @@
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
+}
 
+h1 {
+    font-size: 75px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#instructions {
+    text-align: center;
+    font-size: 25px;
+    font-style: italic;
+
+}
+
+form {
+    margin: 10px;
 }
 
 .gif {
-background-color: darkblue;
-color: white;
-width: 155px;
-height: 40px;
-margin: 15px;
-border-radius: 10px;
-font-size: 20px;
+    background-color: darkblue;
+    color: white;
+    width: 155px;
+    height: 40px;
+    margin: 15px;
+    border-radius: 10px;
+    font-size: 20px;
 }
 
 #add-gif {
-    background-color:red;
-color: white;
-width: 155px;
-height: 40px;
-margin: 15px;
-border-radius: 10px;
-font-size: 20px;
-font-weight: bold;
+    background-color: red;
+    color: white;
+    width: 155px;
+    height: 40px;
+    margin: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
 
+#giphyLogo {
+position: absolute;
 }
