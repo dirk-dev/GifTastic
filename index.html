@@ -15,34 +15,34 @@
 <body>
     <div class="container">
 
+        <div class="giphyLogo"><img id=giphyLogo src="assets/images/poweredby_100px-white_vertlogo.png" alt="powered by Giphy"></div>
+
         <h1>GifTastic</h1>
         <p id="instructions">Click the labeled buttons to add gifs related to that item, or submit your own!</p>
         <br>
 
         <div id=gifButtons></div>
 
-        <!-- edit for gif import -->
         <form id="gifsForm">
-            <label for=gifsInput">Add another gif: </label>
+            <label for=gifsInput>Add another gif: </label>
             <input type="text" id="gif-input"><br>
 
             <!-- Button triggers gif to be added -->
             <input id="add-gif" type="submit" value="Submit">
         </form>
-
-        <!-- gifs will get dumped Here -->
-        <div id="gifs-view"></div>
-
-        <script type="text/javascript" src="assets/javascript/app.js">
-
-        </script>
-
     </div>
 
-    <footer><img id=giphyLogo src="assets/images/poweredby_100px-white_vertlogo.png" alt="powered by Giphy logo"></footer>
-    
+    <div id=gifContainer>
+        <!-- gifs will get dumped Here -->
+        <div id="gifs-view"></div>
+    </div>
+
+    <script type="text/javascript" src="assets/javascript/app.js">
+
+    </script>
+
+
+
 </body>
 
 </html>
-
-<!-- WATCH  -button click may redraw screen -->

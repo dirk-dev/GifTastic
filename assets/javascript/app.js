@@ -1,7 +1,12 @@
 console.log("GifTastic app.js loaded")
 
+var gifView;
+var staticGif;
+var movingGif;
+var dataState;
+
 var topics = [
-    'spaceship', 'Star Wars', 'Star Trek', 'Death Star', 'Stargate', 'Star Destroyer', 'astronomy', 'warbird'
+    'Battlestar Galactica', 'Star Wars', 'Star Trek', 'Peter Sellers', 'Stargate', 'galaxies', 'solar system', 'jet fighter'
 ]
 
 function displayGifInfo() {
@@ -16,43 +21,40 @@ function displayGifInfo() {
     }).then(function (response) {
 
         // Creates a div to hold the gif
-        var gifView = $("#gifs-view");
+        gifView = $("#gifs-view");
         // make this empty to wipe the screen
         $("#gifs-view").prepend(gifView);
         console.log("response is below");
         console.log(response);
 
-        /////??????????????
-        var rating = response.data.rating;
 
+        for (var i = 0; i < response.data.length; i++) {
 
-        for (var i = 0; i <response.data.length; i++) {
-        // Retrieves the Rating Data and creates an element to have the rating displayed
-        gifView.append($("<p>").text("Rating: " + response.data[i].rating));
+            // varibles for static and moving gifs
+            staticGif = response.data[i].images.fixed_height_still.url;
+            movingGif = response.data[i].images.fixed_height.url;
 
-        // Creates an element to hold the image
-        // Appends the image
-        ////////////// - this needs to be about the gif, not the poster!!!
-        gifView.append($("<img>").attr("src", response.data[i].images.fixed_height_still.url));
+            // Creates an element to hold the image, appends the image
+            gifView.append($("<img>").attr("src", staticGif));
+
+            // Retrieves the Rating Data and creates an element to have the rating displayed
+            gifView.append($("<p>").text("Rating: " + response.data[i].rating));
 
         };
-
-        // Puts the entire Movie above the previous movies.
     });
 
 }
 
 function renderButtons() {
 
-    // Deletes the movies prior to adding new movies
-    // (this is necessary otherwise you will have repeat buttons)
+    // Deletes the gifs prior to adding new gifs
     $("#gifButtons").empty();
     // Loops through the array 
     for (var j = 0; j < topics.length; j++) {
 
-        // Then dynamically generates buttons for each movie in the array
+        // dynamically generates buttons for each gif in the array
         var a = $("<button>");
-        // Adds a class of movie to our button
+        // Adds a class of gif to our button
         a.addClass("gif");
         // Added a data-attribute
         a.attr("data-name", topics[j]);
@@ -63,18 +65,23 @@ function renderButtons() {
     }
 }
 
-
-// This function handles events where the add movie button is clicked
+// This function handles events where the add gif button is clicked
 $("#add-gif").on("click", function (event) {
     event.preventDefault();
     // This line of code will grab the input from the textbox
     var gif = $("#gif-input").val().trim();
 
-    // The movie from the textbox is then added to our array
+    // The gif from the textbox is then added to our array
     topics.push(gif);
 
-    // Calling renderButtons which handles the processing of our movie array
     renderButtons();
+});
+
+//click event when a gif is clicked
+$("#gifs-view").on("click", function () {
+
+    
+
 });
 
 // Adding click event listeners to all elements with a class of "gif"

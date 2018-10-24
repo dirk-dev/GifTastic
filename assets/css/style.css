@@ -1,18 +1,50 @@
 html {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
+    min-height: 100%;
+}
+
+#giphyLogo {
+    padding: 15px 15px 0 0;
+    float: right;
 }
 
 h1 {
     font-size: 75px;
     text-align: center;
     font-weight: bold;
+    font-style: italic;
+    clear: both;
 }
+
+p {
+    /* line-height: 35px; */
+    font-weight: bold;
+    margin: 0 0 20px 0;
+
+}
+
+#gifsForm {
+    float: right;
+}
+
+/* TRYING TO GET THE PICTURES TO GO INTO HORIZONTAL ROWS */
+#gifContainer {
+    float: left;
+    width: 600px;
+
+}
+
+#gifs-view {
+    float: left;
+    width: 150px;
+    margin: 10px;
+}
+
 
 #instructions {
     text-align: center;
     font-size: 25px;
-    font-style: italic;
     line-height: 45px;
 }
 
@@ -23,11 +55,11 @@ form {
 .gif {
     background-color: darkblue;
     color: white;
-    width: 155px;
+    width: 175px;
     height: 40px;
     margin: 15px;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 #add-gif {
@@ -39,8 +71,4 @@ form {
     border-radius: 10px;
     font-size: 20px;
     font-weight: bold;
-}
-
-#giphyLogo {
-position: absolute;
 }
