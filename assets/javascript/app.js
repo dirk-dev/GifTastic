@@ -4,31 +4,11 @@ var topics = [
     'spaceship', 'Star Wars', 'Star Trek', 'Death Star', 'Stargate', 'Star Destroyer', 'astronomy', 'warbird'
 ]
 
-// xhr.done(function (data) {
-//     console.log("success got data", data);
-// });
-// My API key is:   ZhBYk7Ogg5uqcY86VNUVcMn8UCUesZ9B
-
-//CODE FROM GIPHY:
-
-// Gif Search
-// client.search('gifs', {"q": "cats"})
-//   .then((response) => {
-//     response.data.forEach((gifObject) => {
-//       console.log(gifObject)
-//     })
-//   })
-//   .catch((err) => {
-
-//   })
-
-
-// var gif = $(this).attr();
-
 function displayGifInfo() {
 
     var gif = $(this).attr("data-name");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + "#gif-input" + "&api_key=ZhBYk7Ogg5uqcY86VNUVcMn8UCUesZ9B&limit=10&rating=pg";
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ZhBYk7Ogg5uqcY86VNUVcMn8UCUesZ9B&limit=10&rating=pg";
+    console.log("var gif " + gif);
 
     $.ajax({
         url: queryURL,
@@ -36,41 +16,48 @@ function displayGifInfo() {
     }).then(function (response) {
 
         // Creates a div to hold the gif
-        var gifView = $("#gif-view");
+        var gifView = $("#gifs-view");
         // make this empty to wipe the screen
-        $("#gif-view").prepend(gifView);
+        $("#gifs-view").prepend(gifView);
+        console.log("response is below");
         console.log(response);
-        var rating = response.Rated;
+
+        /////??????????????
+        var rating = response.data.rating;
+
+
+        for (var i = 0; i <response.data.length; i++) {
         // Retrieves the Rating Data and creates an element to have the rating displayed
-        gifView.append($("<p>").text("Rating: " + rating));
-        
+        gifView.append($("<p>").text("Rating: " + response.data[i].rating));
+
         // Creates an element to hold the image
         // Appends the image
-        gifView.append($("<img>").attr("src", response.Poster));
+        ////////////// - this needs to be about the gif, not the poster!!!
+        gifView.append($("<img>").attr("src", response.data[i].images.fixed_height_still.url));
+
+        };
 
         // Puts the entire Movie above the previous movies.
     });
 
 }
 
-// Function for displaying data
 function renderButtons() {
 
     // Deletes the movies prior to adding new movies
     // (this is necessary otherwise you will have repeat buttons)
     $("#gifButtons").empty();
-    // Loops through the array of movies
-    for (var i = 0; i < topics.length; i++) {
+    // Loops through the array 
+    for (var j = 0; j < topics.length; j++) {
 
         // Then dynamically generates buttons for each movie in the array
-        //This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
         var a = $("<button>");
         // Adds a class of movie to our button
         a.addClass("gif");
         // Added a data-attribute
-        a.attr("data-name", topics[i]);
+        a.attr("data-name", topics[j]);
         // Provided the initial button text
-        a.text(topics[i]);
+        a.text(topics[j]);
         // Added the button to the gifButtons div
         $("#gifButtons").append(a);
     }
@@ -90,9 +77,7 @@ $("#add-gif").on("click", function (event) {
     renderButtons();
 });
 
-// Adding click event listeners to all elements with a class of "movie"
+// Adding click event listeners to all elements with a class of "gif"
 $(document).on("click", ".gif", displayGifInfo);
-
-
 
 renderButtons();
