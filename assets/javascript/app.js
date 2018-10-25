@@ -31,11 +31,12 @@ function displayGifInfo() {
         for (var i = 0; i < response.data.length; i++) {
 
             // varibles for static and moving gifs
-            staticGif = response.data[i].images.fixed_height_still.url;
-            movingGif = response.data[i].images.fixed_height.url;
+            staticGif = response.data[i].images.fixed_width_still.url;
+            movingGif = response.data[i].images.fixed_width.url;
+
 
             // Creates an element to hold the image, appends the image
-            gifView.append($("<img>").attr("src", staticGif));
+            gifView.append($("<img>").attr("src", response.data[i].images.fixed_width_still.url));
 
             // Retrieves the Rating Data and creates an element to have the rating displayed
             gifView.append($("<p>").text("Rating: " + response.data[i].rating));
@@ -47,8 +48,8 @@ function displayGifInfo() {
 
 function renderButtons() {
 
-    // Deletes the gifs prior to adding new gifs
     $("#gifButtons").empty();
+
     // Loops through the array 
     for (var j = 0; j < topics.length; j++) {
 
@@ -65,6 +66,11 @@ function renderButtons() {
     }
 }
 
+$("#gifs-view").on("click", function () {
+
+
+});
+
 // This function handles events where the add gif button is clicked
 $("#add-gif").on("click", function (event) {
     event.preventDefault();
@@ -80,7 +86,6 @@ $("#add-gif").on("click", function (event) {
 //click event when a gif is clicked
 $("#gifs-view").on("click", function () {
 
-    
 
 });
 
@@ -88,3 +93,17 @@ $("#gifs-view").on("click", function () {
 $(document).on("click", ".gif", displayGifInfo);
 
 renderButtons();
+
+
+
+
+// variables as objects
+// staticGif = {
+//     url:"response.data[i].images.fixed_width_still.url",
+//     state:"static"
+// };
+
+// movingGif = {
+//     url:"response.data[i].images.fixed_width.url",
+//     state"moving"
+// };
