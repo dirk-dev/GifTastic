@@ -1,3 +1,5 @@
+//GifTastic JS file
+
 $(document).ready(function () {
 
 
@@ -70,7 +72,7 @@ $(document).ready(function () {
         var gif = $(this).attr('data-name').replace(/ /g, '+');
 
         // Create the API URL
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ZhBYk7Ogg5uqcY86VNUVcMn8UCUesZ9B&limit=10&rating=g";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ZhBYk7Ogg5uqcY86VNUVcMn8UCUesZ9B&limit=10&rating=g";
         // console.log(queryURL);
 
 
