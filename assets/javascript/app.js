@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 
     var topics = [
-        'Battlestar Galactica', 'Star Wars', 'Star Trek', 'Peter Sellers', 'Stargate', 'galaxies', 'solar system', 'TIE fighter', 'Guardians of the Galaxy'
+        'The Matrix', 'Star Wars', 'Star Trek', 'Peter Sellers', 'Stargate', 'galaxies', 'solar system', 'TIE fighter', 'Guardians of the Galaxy', 'Most Interesting Man', 'Robot Chicken'
     ]
 
     console.log("GifTastic app.js loaded")
@@ -41,13 +41,22 @@ $(document).ready(function () {
     $('#add_gif').on('click', function () {
 
         // Grab the input from the textbox
-        var newgif = $('#gif_input').val().trim().toLowerCase();
+        var newgif = $('#gif_input').val().trim();
 
-        // Add the new gif to the original list
-        topics.push(newgif);
+        //filters out empty entries
+        if (newgif == "") {
+            alert("Please enter a search term")
+        } else {
+
+            // Add the new gif to the original list
+            topics.push(newgif);
+        }
+
 
         // Add new buttons to the rendered HTML
         renderButtons();
+
+        return false;
 
     })
 
@@ -61,7 +70,7 @@ $(document).ready(function () {
         var gif = $(this).attr('data-name').replace(/ /g, '+');
 
         // Create the API URL
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ZhBYk7Ogg5uqcY86VNUVcMn8UCUesZ9B&limit=10&rating=pg";
+        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + gif + "&api_key=ZhBYk7Ogg5uqcY86VNUVcMn8UCUesZ9B&limit=10&rating=g";
         // console.log(queryURL);
 
 
