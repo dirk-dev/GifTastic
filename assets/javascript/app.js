@@ -4,7 +4,7 @@ $(document).ready(function () {
 
 
     var topics = [
-        'The Matrix', 'Star Wars', 'Star Trek', 'Peter Sellers', 'Stargate', 'galaxies', 'solar system', 'TIE fighter', 'Guardians of the Galaxy', 'Most Interesting Man', 'Robot Chicken'
+        'The Matrix', 'Terminator', 'Star Wars', 'Star Trek', 'Peter Sellers', 'Stargate', 'galaxies', 'solar system', 'TIE fighter', 'Darth Vader', 'Guardians of the Galaxy', 'Most Interesting Man', 'Robot Chicken', 'Seinfeld'
     ]
 
     console.log("GifTastic app.js loaded")
@@ -160,3 +160,6 @@ $(document).ready(function () {
     }
 
 });
+
+//Link to updated portfolio with this game added to the portfolio page:
+// https://dirk-kiesewetter.github.io/Responsive-Portfolio/portfolio.html
