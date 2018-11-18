@@ -9,3 +9,5 @@ The images are initially displayed as static images rather than gifs. When the u
 This project was a class exercise in JavaScript, jQuery, APIs, CSS, and HTML.
 
 **GiTastic** was coded by me, and is maintained by me.
+
+The deployed app can be found at https://dirk-kiesewetter.github.io/GifTastic/
